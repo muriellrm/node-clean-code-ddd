@@ -1,12 +1,11 @@
-import { randomUUID } from "crypto";
+import { Entity } from "#/core/entities/entity";
+import type { Slug } from "./value-objects/slug";
 
-export class Question {
-  constructor(
-    public title: string,
-    public content: string,
-    public authorId: string,
-    public id?: string
-  ) {
-    this.id = id || randomUUID();
-  }
+interface QuestionProps {
+  title: string;
+  content: string;
+  authorId: string;
+  slug: Slug;
 }
+
+export class Question extends Entity<QuestionProps> {}
